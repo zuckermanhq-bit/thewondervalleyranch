@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Disallow common admin / build paths just in case
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+Sitemap: https://thewondervalleyranch.com/sitemap.xml

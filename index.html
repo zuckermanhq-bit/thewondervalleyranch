@@ -1,0 +1,2059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wonder Valley Ranch · Direct Booking · High Desert · Joshua Tree</title>
+<meta name="description" content="Wonder Valley Ranch — a 3-acre high desert compound near Joshua Tree National Park. Saltwater pool, hot tub, dry sauna. Three structures, sleeps 10. Book direct with the owner.">
+<meta name="theme-color" content="#1B2A4A">
+<meta name="author" content="Brian Zuckerman">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://thewondervalleyranch.com/">
+
+<!-- Favicon + Apple touch icon -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wonder Valley Ranch · Direct Booking">
+<meta property="og:title" content="Wonder Valley Ranch · Direct Booking · Joshua Tree">
+<meta property="og:description" content="A 3-acre high desert compound near Joshua Tree National Park. Saltwater pool, hot tub, dry sauna. Sleeps 10. Book direct.">
+<meta property="og:url" content="https://thewondervalleyranch.com/">
+<meta property="og:image" content="https://thewondervalleyranch.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Wonder Valley Ranch — high desert compound near Joshua Tree">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Wonder Valley Ranch · Direct Booking · Joshua Tree">
+<meta name="twitter:description" content="High desert compound near Joshua Tree. Saltwater pool, hot tub, dry sauna. Sleeps 10.">
+<meta name="twitter:image" content="https://thewondervalleyranch.com/og-image.png">
+
+<!-- Performance: preconnects -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Structured Data: Organization + LodgingBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Zuckerman Rentals",
+  "legalName": "Zuckerman Rentals, LLC",
+  "url": "https://thewondervalleyranch.com",
+  "logo": "https://thewondervalleyranch.com/apple-touch-icon.png",
+  "image": "https://thewondervalleyranch.com/og-image.png",
+  "description": "Owner of Wonder Valley Ranch, a 3-acre direct-booking high desert compound near Joshua Tree National Park.",
+  "founder": { "@type": "Person", "name": "Brian Zuckerman" },
+  "email": "ZuckermanHQ@gmail.com",
+  "areaServed": ["Twentynine Palms, CA"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "@id": "https://thewondervalleyranch.com/",
+  "name": "Wonder Valley Ranch",
+  "description": "Three-acre high desert compound near Joshua Tree National Park with saltwater pool, hot tub, and dry sauna. Three structures, sleeps 10.",
+  "url": "https://thewondervalleyranch.com/",
+  "image": "https://thewondervalleyranch.com/img/wondervalley/wvr-compound-twilight.jpg",
+  "address": { "@type": "PostalAddress", "addressLocality": "Twentynine Palms", "addressRegion": "CA", "addressCountry": "US" },
+  "numberOfRooms": "4",
+  "petsAllowed": true,
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Saltwater pool", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Hot tub", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Dry sauna", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Pet friendly", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "EV charger", "value": true }
+  ],
+  "priceRange": "$$$"
+}
+</script>
+
+<!-- Vercel Analytics (zero-config; CSP already allows va.vercel-scripts.com) -->
+<script defer src="/_vercel/insights/script.js"></script>
+
+<style>
+  :root {
+    --navy: #1B2A4A;
+    --gold: #C19A4E;
+    --gold-light: #D4B06A;
+    --cream: #F7F4EF;
+    --warm-white: #FDFBF8;
+    --charcoal: #2C2C2A;
+    --muted: #888780;
+    --border: rgba(27,42,74,0.12);
+    --border-gold: rgba(193,154,78,0.3);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /* Visually-hidden labels for screen readers */
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Skip to content link */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--navy);
+    color: var(--warm-white);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    z-index: 1000;
+    transition: top 0.2s;
+  }
+  .skip-link:focus { top: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    background: var(--warm-white);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 4rem;
+    background: rgba(253,251,248,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: padding 0.3s ease;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--navy);
+    letter-spacing: 0.08em;
+    text-decoration: none;
+  }
+
+  .nav-logo span {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--navy);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 1; }
+
+  .nav-cta {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    background: var(--navy);
+    padding: 0.6rem 1.4rem;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--gold); }
+
+  /* ── NAV TOGGLE (HAMBURGER) ── */
+  .nav-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--navy);
+    transition: transform 0.25s ease, opacity 0.2s;
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* ── MOBILE MENU ── */
+  .mobile-menu {
+    position: fixed;
+    top: 70px;
+    left: 0; right: 0;
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--border);
+    transform: translateY(-110%);
+    transition: transform 0.3s ease;
+    z-index: 99;
+    padding: 1.5rem 2rem 2.5rem;
+    box-shadow: 0 12px 24px rgba(27,42,74,0.08);
+  }
+  .mobile-menu.open {
+    transform: translateY(0);
+  }
+  .mobile-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .mobile-menu a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--navy);
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-menu a.mobile-menu-cta {
+    background: var(--navy);
+    color: var(--warm-white);
+    text-align: center;
+    padding: 0.9rem;
+    border-bottom: 0;
+    margin-top: 0.5rem;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 4rem 6rem 6rem;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 60%;
+    height: 140%;
+    background: rgba(193,154,78,0.06);
+    transform: rotate(-8deg);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--warm-white);
+    margin-bottom: 2rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-sub {
+    font-size: 0.8rem;
+    line-height: 1.9;
+    color: rgba(253,251,248,0.6);
+    max-width: 360px;
+    margin-bottom: 3rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold);
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); }
+
+  .btn-ghost {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    border: 1px solid rgba(253,251,248,0.3);
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    transition: border-color 0.2s;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-right {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+    background: var(--border);
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-img-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    background: linear-gradient(135deg, #c8c4b8 0%, #b0aba0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .hero-img-placeholder span {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .hero-stat-bar {
+    display: flex;
+    gap: 0;
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+  }
+
+  .hero-stat {
+    flex: 1;
+    padding: 1.5rem 2rem;
+    border-right: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .hero-stat:last-child { border-right: none; }
+
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--navy);
+    display: block;
+  }
+
+  .hero-stat-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.25rem;
+    display: block;
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 6rem 0; }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4rem;
+  }
+
+  .section-eyebrow {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--navy);
+  }
+
+  .section-title em { font-style: italic; }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin: 1.5rem 0;
+  }
+
+  /* ── PROPERTIES ── */
+  #properties { background: var(--cream); }
+
+  .properties-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .properties-header .divider { margin: 1.5rem auto; }
+
+  .properties-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--border);
+  }
+
+  .property-card {
+    background: var(--warm-white);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .property-card:hover { transform: translateY(-4px); }
+
+  .property-img-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+  }
+
+  .property-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .property-card:hover .property-img { transform: scale(1.04); }
+
+  .property-img-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #c8c4b8 0%, #9e998e 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+  }
+
+  .property-location-badge {
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: var(--navy);
+    color: var(--warm-white);
+    padding: 0.35rem 0.75rem;
+  }
+
+  .property-info {
+    padding: 1.75rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-top: 2px solid var(--gold);
+  }
+
+  .property-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+  }
+
+  .property-tagline {
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+
+  .property-specs {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .spec {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--charcoal);
+  }
+
+  .spec span {
+    display: block;
+    font-size: 0.55rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.15rem;
+  }
+
+  .property-highlights {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    flex: 1;
+  }
+
+  .property-highlights li {
+    font-size: 0.7rem;
+    line-height: 1.8;
+    color: var(--charcoal);
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .property-highlights li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.6rem;
+  }
+
+  .property-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .property-rate {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--navy);
+  }
+
+  .property-rate span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  .btn-book {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    background: var(--navy);
+    padding: 0.6rem 1.25rem;
+    text-decoration: none;
+    transition: background 0.2s;
+    display: inline-block;
+  }
+
+  .btn-book:hover { background: var(--gold); }
+
+  /* ── PROPERTY DETAIL ── */
+  .property-detail {
+    padding: 6rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .property-detail:nth-child(even) { background: var(--cream); }
+
+  .detail-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .detail-inner.reverse { direction: rtl; }
+  .detail-inner.reverse > * { direction: ltr; }
+
+  .detail-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 4px;
+  }
+
+  .gallery-main {
+    grid-column: 1 / -1;
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, #c8c4b8 0%, #9e998e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .gallery-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .gallery-sub {
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, #b5b0a5 0%, #8a857a 100%);
+    overflow: hidden;
+  }
+
+  .gallery-sub img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .gallery-placeholder-text {
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .detail-content { padding-top: 0.5rem; }
+
+  .detail-location {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .detail-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .detail-subtitle {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+
+  .detail-specs-row {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .detail-spec {
+    text-align: center;
+  }
+
+  .detail-spec-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--navy);
+    display: block;
+  }
+
+  .detail-spec-label {
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .detail-description {
+    font-size: 0.8rem;
+    line-height: 1.9;
+    color: var(--charcoal);
+    margin-bottom: 2rem;
+  }
+
+  .amenities-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .amenity {
+    font-size: 0.65rem;
+    color: var(--charcoal);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .amenity::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .booking-box {
+    background: var(--navy);
+    padding: 2rem;
+    margin-top: 2rem;
+  }
+
+  .booking-box-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--warm-white);
+    margin-bottom: 1.25rem;
+  }
+
+  .booking-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .booking-form input,
+  .booking-form select {
+    background: rgba(253,251,248,0.08);
+    border: 1px solid rgba(253,251,248,0.2);
+    color: var(--warm-white);
+    padding: 0.75rem 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.2s;
+  }
+
+  .booking-form input::placeholder { color: rgba(253,251,248,0.4); }
+  .booking-form select option { background: var(--navy); }
+  .booking-form input:focus,
+  .booking-form select:focus { border-color: var(--gold); }
+
+  .booking-form-full { grid-column: 1 / -1; }
+
+  .btn-inquire {
+    width: 100%;
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    padding: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-inquire:hover { background: var(--gold-light); }
+
+  .booking-note {
+    font-size: 0.6rem;
+    color: rgba(253,251,248,0.4);
+    text-align: center;
+    margin-top: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── DESTINATION STRIPS ── */
+  .destinations {
+    background: var(--navy);
+    padding: 5rem 0;
+  }
+
+  .dest-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .dest-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--warm-white);
+  }
+
+  .dest-title em { color: var(--gold-light); font-style: italic; }
+
+  .dest-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .dest-item {
+    border-left: 2px solid var(--gold);
+    padding-left: 1.25rem;
+  }
+
+  .dest-item-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--warm-white);
+    margin-bottom: 0.25rem;
+  }
+
+  .dest-item-desc {
+    font-size: 0.65rem;
+    line-height: 1.7;
+    color: rgba(253,251,248,0.5);
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--warm-white); }
+
+  .about-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4rem;
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .about-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--navy);
+    font-style: italic;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    border-left: 2px solid var(--gold);
+  }
+
+  .about-body {
+    font-size: 0.8rem;
+    line-height: 2;
+    color: var(--charcoal);
+  }
+
+  .about-body p { margin-bottom: 1.25rem; }
+  .about-body p:last-child { margin-bottom: 0; }
+
+  .about-sig {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--navy);
+    margin-top: 2rem;
+  }
+
+  .about-aside {
+    padding-top: 0.5rem;
+  }
+
+  .about-aside-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(160deg, #c8c4b8 0%, #9e998e 100%);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-aside-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about-credential {
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .about-credential p {
+    font-size: 0.65rem;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .about-credential strong {
+    font-weight: 500;
+    color: var(--navy);
+  }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--cream); }
+
+  .contact-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-form-wrap {
+    background: var(--navy);
+    padding: 3rem;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    background: rgba(253,251,248,0.08);
+    border: 1px solid rgba(253,251,248,0.2);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: var(--warm-white);
+    padding: 0.75rem 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.2s;
+    background: transparent;
+    border-radius: 0;
+  }
+
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder { color: rgba(253,251,248,0.35); }
+  .contact-form select option { background: var(--navy); color: var(--warm-white); }
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus { border-bottom-color: var(--gold); }
+  .contact-form textarea { resize: vertical; min-height: 100px; }
+
+  .btn-submit {
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    padding: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+  }
+
+  .btn-submit:hover { background: var(--gold-light); }
+
+  .contact-info { padding-top: 0.5rem; }
+
+  .contact-info-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-info-body {
+    font-size: 0.75rem;
+    line-height: 1.9;
+    color: var(--charcoal);
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .contact-detail-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .contact-detail-label {
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding-top: 0.15rem;
+    min-width: 70px;
+  }
+
+  .contact-detail-val {
+    font-size: 0.75rem;
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+
+  .contact-detail-val a {
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+
+  .contact-detail-val a:hover { border-color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 3rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--warm-white);
+    letter-spacing: 0.08em;
+  }
+
+  .footer-logo span { color: var(--gold); font-style: italic; }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(253,251,248,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-copy {
+    font-size: 0.6rem;
+    color: rgba(253,251,248,0.3);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── PHOTO STRIP (with right-edge fade) ── */
+  .photo-strip {
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    padding: 0 4rem;
+    position: relative;
+  }
+  .photo-strip-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+  }
+  .photo-strip-track {
+    display: flex;
+    gap: 6px;
+    min-width: max-content;
+  }
+  .photo-strip-track img {
+    height: 180px;
+    width: auto;
+    object-fit: cover;
+    cursor: zoom-in;
+    scroll-snap-align: start;
+    transition: opacity 0.2s;
+  }
+  .photo-strip-track img:hover { opacity: 0.92; }
+  .photo-strip::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 4rem; bottom: 0;
+    width: 60px;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(247,244,239,0), var(--cream));
+  }
+  #wondervalley .photo-strip::after {
+    background: linear-gradient(to right, rgba(253,251,248,0), var(--warm-white));
+  }
+  @media (max-width: 1024px) {
+    .photo-strip { padding: 0 2rem; }
+    .photo-strip::after { right: 2rem; }
+  }
+  @media (max-width: 600px) {
+    .photo-strip { padding: 0 1.25rem; }
+    .photo-strip::after { right: 1.25rem; }
+    .photo-strip-track img { height: 140px; }
+  }
+
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(27,42,74,0.95);
+    z-index: 300;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  .lightbox.active { display: flex; }
+  .lightbox img {
+    max-width: 95vw;
+    max-height: 90vh;
+    object-fit: contain;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+  }
+  .lightbox-close,
+  .lightbox-prev,
+  .lightbox-next {
+    position: absolute;
+    background: transparent;
+    border: 1px solid rgba(253,251,248,0.3);
+    color: var(--warm-white);
+    width: 44px; height: 44px;
+    cursor: pointer;
+    font-family: serif;
+    font-size: 1.4rem;
+    line-height: 1;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .lightbox-close:hover,
+  .lightbox-prev:hover,
+  .lightbox-next:hover { background: rgba(193,154,78,0.2); border-color: var(--gold); }
+  .lightbox-close { top: 1.5rem; right: 1.5rem; }
+  .lightbox-prev { left: 1.5rem; top: 50%; transform: translateY(-50%); }
+  .lightbox-next { right: 1.5rem; top: 50%; transform: translateY(-50%); }
+  .lightbox-counter {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(253,251,248,0.7);
+  }
+
+  /* ── NAV SCROLLED STATE ── */
+  nav.nav--scrolled {
+    padding: 1rem 4rem;
+    background: rgba(253,251,248,0.96);
+    box-shadow: 0 1px 0 var(--border);
+  }
+  @media (max-width: 1024px) {
+    nav.nav--scrolled { padding: 0.85rem 2rem; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.7s ease both; }
+  .hero-title { animation: fadeUp 0.7s 0.15s ease both; }
+  .hero-sub { animation: fadeUp 0.7s 0.3s ease both; }
+  .hero-actions { animation: fadeUp 0.7s 0.45s ease both; }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(27,42,74,0.75);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .modal-overlay.active { display: flex; }
+
+  .modal {
+    background: var(--warm-white);
+    max-width: 560px;
+    width: 100%;
+    padding: 3rem;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--muted);
+    line-height: 1;
+    transition: color 0.2s;
+  }
+
+  .modal-close:hover { color: var(--navy); }
+
+  .modal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-sub {
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .modal-form input,
+  .modal-form select,
+  .modal-form textarea {
+    border: none;
+    border-bottom: 1px solid var(--border);
+    padding: 0.6rem 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    outline: none;
+    width: 100%;
+    background: transparent;
+    color: var(--charcoal);
+    transition: border-color 0.2s;
+    border-radius: 0;
+  }
+
+  .modal-form input::placeholder,
+  .modal-form textarea::placeholder { color: var(--muted); }
+  .modal-form input:focus,
+  .modal-form select:focus,
+  .modal-form textarea:focus { border-bottom-color: var(--gold); }
+  .modal-form textarea { resize: vertical; min-height: 80px; }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .modal-note {
+    font-size: 0.6rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-top: 0.5rem;
+  }
+
+  /* ── SUCCESS STATE ── */
+  .success-message {
+    display: none;
+    text-align: center;
+    padding: 2rem 0;
+  }
+
+  .success-message.active { display: block; }
+
+  .success-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.2rem;
+    color: var(--navy);
+  }
+
+  .success-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+
+  .success-body {
+    font-size: 0.75rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    nav { padding: 1.25rem 2rem; }
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .nav-cta { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 5rem 2rem 3rem; }
+    .hero-right { display: none; }
+    .section-inner { padding: 0 2rem; }
+    .properties-grid { grid-template-columns: 1fr; }
+    .detail-inner { grid-template-columns: 1fr; gap: 3rem; padding: 0 2rem; }
+    .detail-inner.reverse { direction: ltr; }
+    .about-inner { grid-template-columns: 1fr; gap: 3rem; padding: 0 2rem; }
+    .contact-inner { grid-template-columns: 1fr; gap: 3rem; padding: 0 2rem; }
+    .dest-inner { grid-template-columns: 1fr; gap: 2rem; padding: 0 2rem; }
+    footer { flex-direction: column; gap: 1rem; padding: 2rem; }
+    .hero-stat-bar { flex-wrap: wrap; }
+    .booking-form { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    nav { padding: 1rem 1.25rem; }
+    .nav-logo { font-size: 1.1rem; }
+    .hero-left { padding: 4rem 1.25rem 2rem; }
+    .section-inner { padding: 0 1.25rem; }
+    .detail-inner { padding: 0 1.25rem; }
+    .about-inner { padding: 0 1.25rem; }
+    .contact-inner { padding: 0 1.25rem; }
+    .dest-inner { padding: 0 1.25rem; }
+    .contact-form-wrap { padding: 2rem 1.5rem; }
+    .modal { padding: 2rem 1.5rem; }
+    .property-info { padding: 1.25rem; }
+    section { padding: 4rem 0; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav aria-label="Primary">
+  <a href="#" class="nav-logo" aria-label="Wonder Valley Ranch direct booking — home">Wonder Valley <span>· Joshua Tree</span></a>
+  <ul class="nav-links" id="primaryMenu">
+    <li><a href="#wondervalley">The Compound</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Inquire</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-controls="primaryMenu" aria-expanded="false" type="button">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation" aria-hidden="true" inert>
+  <ul>
+    <li><a href="#wondervalley">The Compound</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="mobile-menu-cta">Inquire</a></li>
+  </ul>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Twentynine Palms &middot; Joshua Tree</p>
+    <h1 class="hero-title">Where the land<br>is the <em>amenity</em></h1>
+    <p class="hero-sub">A 3-acre sprawling homestead compound in the high desert — three structures organized around a saltwater pool, hot tub, and dry sauna, set against 360-degree views of the Mojave landscape. Sixteen minutes from the north entrance to Joshua Tree National Park.</p>
+    <div class="hero-actions">
+      <a href="#wondervalley" class="btn-primary">Explore the Compound</a>
+      <a href="#about" class="btn-ghost">About the Host</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img width="1920" height="1280" fetchpriority="high" src="/img/wondervalley/wvr-pool-palms-wide.jpg" alt="Wonder Valley Ranch saltwater pool flanked by palms, Twentynine Palms" class="hero-img">
+    <img width="1920" height="1280" fetchpriority="high" src="/img/wondervalley/wvr-compound-twilight.jpg" alt="Wonder Valley Ranch compound at twilight near Joshua Tree" class="hero-img">
+  </div>
+</section>
+
+<!-- STAT BAR -->
+<div class="hero-stat-bar">
+  <div class="hero-stat">
+    <span class="hero-stat-num">3</span>
+    <span class="hero-stat-label">Acres</span>
+  </div>
+  <div class="hero-stat">
+    <span class="hero-stat-num">3</span>
+    <span class="hero-stat-label">Structures</span>
+  </div>
+  <div class="hero-stat">
+    <span class="hero-stat-num">10</span>
+    <span class="hero-stat-label">Sleeps</span>
+  </div>
+</div>
+
+<div class="property-detail" id="wondervalley">
+  <div class="detail-inner">
+    <div class="detail-gallery">
+      <div class="gallery-main">
+        <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-living-vaulted.jpg" alt="Wonder Valley Ranch open kitchen and living with vaulted ceiling and exposed beams">
+      </div>
+      <div class="gallery-sub">
+        <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-sauna.jpg" alt="Wonder Valley Ranch dry sauna interior">
+      </div>
+      <div class="gallery-sub">
+        <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-compound-aerial.jpg" alt="Wonder Valley Ranch three-acre compound from above">
+      </div>
+    </div>
+    <div class="detail-content">
+      <p class="detail-location">Twentynine Palms · Wonder Valley</p>
+      <h2 class="detail-name">Wonder Valley Ranch</h2>
+      <p class="detail-subtitle">High Desert Compound · Joshua Tree</p>
+      <div class="detail-specs-row">
+        <div class="detail-spec">
+          <span class="detail-spec-num">4</span>
+          <span class="detail-spec-label">Bedrooms</span>
+        </div>
+        <div class="detail-spec">
+          <span class="detail-spec-num">4</span>
+          <span class="detail-spec-label">Bathrooms</span>
+        </div>
+        <div class="detail-spec">
+          <span class="detail-spec-num">10</span>
+          <span class="detail-spec-label">Guests</span>
+        </div>
+        <div class="detail-spec">
+          <span class="detail-spec-num">3</span>
+          <span class="detail-spec-label">Acres</span>
+        </div>
+      </div>
+      <p class="detail-description">A 3-acre sprawling homestead compound in the high desert of Wonder Valley — three separate structures organized around a saltwater pool, hot tub, and dry sauna, set against 360-degree views of the Mojave landscape. The silence here has its own sound. The dark skies are among the finest in Southern California.</p>
+      <p class="detail-description">The compound structure — main house, cottage, and pool house — gives groups both the ability to gather and the privacy to retreat. Fully fenced and pet-friendly. Sixteen minutes from the north entrance to Joshua Tree National Park.</p>
+      <div class="amenities-grid">
+        <div class="amenity">Saltwater heated pool</div>
+        <div class="amenity">Hot tub</div>
+        <div class="amenity">Dry sauna</div>
+        <div class="amenity">Three-structure compound</div>
+        <div class="amenity">360° desert views</div>
+        <div class="amenity">Dark sky stargazing</div>
+        <div class="amenity">EV charger</div>
+        <div class="amenity">Outdoor shower</div>
+        <div class="amenity">BBQ &amp; fire pit</div>
+        <div class="amenity">Pet friendly &amp; fully fenced</div>
+        <div class="amenity">High-speed WiFi</div>
+        <div class="amenity">Game room</div>
+      </div>
+      <div class="booking-box" data-property="Wonder Valley Ranch">
+        <p class="booking-box-title">Request a Stay</p>
+        <div class="booking-form">
+          <label class="sr-only" for="wvr-checkin">Check-in date</label>
+          <input id="wvr-checkin" name="checkin" type="date">
+          <label class="sr-only" for="wvr-checkout">Check-out date</label>
+          <input id="wvr-checkout" name="checkout" type="date">
+          <label class="sr-only" for="wvr-guests">Number of guests</label>
+          <select id="wvr-guests" name="guests">
+            <option value="" disabled selected>Number of guests</option>
+            <option value="2">2 guests</option>
+            <option value="4">4 guests</option>
+            <option value="6">6 guests</option>
+            <option value="8">8 guests</option>
+            <option value="10">10 guests</option>
+          </select>
+          <label class="sr-only" for="wvr-email">Email address</label>
+          <input id="wvr-email" name="email" type="email" placeholder="Your email" autocomplete="email">
+          <label class="sr-only" for="wvr-name">Your name</label>
+          <input id="wvr-name" name="name" type="text" class="booking-form-full" placeholder="Your name" autocomplete="name">
+        </div>
+        <button class="btn-inquire" type="button" onclick="openModal('Wonder Valley Ranch', this)">Check Availability</button>
+        <p class="booking-note">We'll confirm availability and pricing within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+  <!-- WVR Photo Strip -->
+  <div class="photo-strip">
+    <div class="photo-strip-scroll">
+    <div class="photo-strip-track">
+      <!-- Act 1: Pool + outdoor (bright daytime) -->
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-pool-palm-mountain.jpg" alt="Wonder Valley Ranch pool with palm and Joshua Tree mountain backdrop">
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-pool-dining.jpg" alt="Wonder Valley Ranch poolside dining table">
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-pool-wide.jpg" alt="Wonder Valley Ranch saltwater pool wide angle">
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-pool-hottub.jpg" alt="Wonder Valley Ranch pool with adjacent hot tub">
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-pool-palms-wide.jpg" alt="Wonder Valley Ranch pool flanked by palms, wide view">
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-pool-aerial.jpg" alt="Wonder Valley Ranch pool from above">
+      <!-- Act 2: Open living + kitchen (vaulted ceilings, exposed beams) -->
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-living-vaulted-alt.jpg" alt="Wonder Valley Ranch great room with vaulted ceiling and exposed beams">
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-kitchen-island.jpg" alt="Wonder Valley Ranch kitchen with island">
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-kitchen-island-2.jpg" alt="Wonder Valley Ranch kitchen island with bar stools">
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-kitchen-detail.jpg" alt="Wonder Valley Ranch kitchen detail">
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-kitchen-french-doors.jpg" alt="Wonder Valley Ranch kitchen with French doors looking out to the desert">
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-dining-french-doors.jpg" alt="Wonder Valley Ranch dining room with French doors and mountain view">
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-living-room.jpg" alt="Wonder Valley Ranch living room with sofa">
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-living-arched.jpg" alt="Wonder Valley Ranch living room with arched accents">
+      <!-- Act 3: Bedrooms (vaulted ceilings, light) -->
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-bedroom-vaulted.jpg" alt="Wonder Valley Ranch bedroom under vaulted ceiling and beams">
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-bedroom-arched-mirror.jpg" alt="Wonder Valley Ranch bedroom with arched mirror">
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-bedroom.jpg" alt="Wonder Valley Ranch bedroom">
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-bedroom-arched-headboard.jpg" alt="Wonder Valley Ranch bedroom with arched headboard">
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-bedroom-soft.jpg" alt="Wonder Valley Ranch bedroom with soft daylight">
+      <!-- Act 4: Baths + sauna -->
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-bath-tub.jpg" alt="Wonder Valley Ranch bathroom with soaking tub">
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-bath-mirror.jpg" alt="Wonder Valley Ranch bathroom with arched mirror">
+      <img width="1920" height="1279" loading="lazy" decoding="async" src="/img/wondervalley/wvr-sauna-detail.jpg" alt="Wonder Valley Ranch dry sauna detail">
+      <!-- Act 5: Property + landscape -->
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-exterior-day.jpg" alt="Wonder Valley Ranch desert exterior, daytime">
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-desert-vista.jpg" alt="Wonder Valley Ranch desert vista wide">
+      <!-- Act 6: Twilight (closing) -->
+      <img width="1920" height="1280" loading="lazy" decoding="async" src="/img/wondervalley/wvr-compound-twilight.jpg" alt="Wonder Valley Ranch compound at twilight, Joshua Tree">
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- DESTINATIONS -->
+<div class="destinations">
+  <div class="dest-inner">
+    <div>
+      <p class="section-eyebrow" style="color:var(--gold);">The Territory</p>
+      <h2 class="dest-title">High desert.<br><em>Irreplaceable.</em></h2>
+    </div>
+    <div class="dest-grid">
+      <div class="dest-item">
+        <p class="dest-item-name">Joshua Tree National Park</p>
+        <p class="dest-item-desc">16 min · North entrance. Boulders, Joshua trees, and silence on a geological scale.</p>
+      </div>
+      <div class="dest-item">
+        <p class="dest-item-name">Pioneertown &amp; Pappy's</p>
+        <p class="dest-item-desc">46 min · The desert's most legendary music venue in a perfectly preserved western town.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div>
+      <p class="section-eyebrow">About the Host</p>
+      <blockquote class="about-quote">"The solitude and space to breathe became not just something we enjoyed, but something we wanted to share."</blockquote>
+      <div class="about-body">
+        <p>My family had a second home in Joshua Tree for years before we truly lived there. When Covid arrived, we decamped to Wonder Valley full time — and it changed everything. We'd always loved visiting, but actually living in the open desert was a revelation. Each day brought something new: sunrises and sunsets that demanded your attention, desert wildlife, colors that exist nowhere else.</p>
+        <p>My background is real estate. I spent years working with investors on multi-family buildings before falling in love with a different kind of property — the kind with a story, a setting, an irreplaceable sense of place. Rural properties. Wine country estates. High desert compounds. The kind of places that don't just provide shelter but actually change the way you feel when you're in them.</p>
+        <p>I host because I believe these places deserve guests who will appreciate them. I hope you're one of them.</p>
+        <p style="margin-top:1.75rem;font-size:0.9rem;color:var(--muted);">I also host two properties in Healdsburg wine country &mdash; <a href="https://healdsburgstays.com" rel="noopener" style="color:var(--navy);">healdsburgstays.com &rarr;</a></p>
+      </div>
+      <p class="about-sig">— BZ</p>
+    </div>
+    <div class="about-aside">
+      <div class="about-aside-img">
+        <span style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);">Host photo · coming</span>
+      </div>
+      <div class="about-credential">
+        <p><strong>Brian Zuckerman</strong></p>
+        <p>Owner &amp; Host</p>
+        <p>Twentynine Palms, CA</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div>
+      <p class="section-eyebrow">Get in Touch</p>
+      <h2 class="contact-info-title">Ready to plan<br>your stay?</h2>
+      <p class="contact-info-body">Whether you're ready to book or just beginning to plan, we're here to help you find the right property for your group, dates, and vision. Most inquiries receive a response within a few hours.</p>
+      <div class="contact-details">
+        <div class="contact-detail-item">
+          <span class="contact-detail-label">Email</span>
+          <span class="contact-detail-val"><a href="mailto:ZuckermanHQ@gmail.com">ZuckermanHQ@gmail.com</a></span>
+        </div>
+        <div class="contact-detail-item">
+          <span class="contact-detail-label">Properties</span>
+          <span class="contact-detail-val">Wonder Valley Ranch · Twentynine Palms</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form-wrap">
+      <p class="section-eyebrow" style="color:var(--gold);margin-bottom:1.25rem;">Send an Inquiry</p>
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/mwvynvgv" method="POST" onsubmit="handleContactSubmit(event)" novalidate>
+        <label class="sr-only" for="ct-name">Your name</label>
+        <input id="ct-name" name="name" type="text" placeholder="Your name" autocomplete="name" required>
+        <label class="sr-only" for="ct-email">Email address</label>
+        <input id="ct-email" name="email" type="email" placeholder="Email address" autocomplete="email" required>
+        <label class="sr-only" for="ct-phone">Phone (optional)</label>
+        <input id="ct-phone" name="phone" type="tel" placeholder="Phone (optional)" autocomplete="tel">
+        <input type="hidden" name="property" value="Wonder Valley Ranch">
+        <label class="sr-only" for="ct-arrival">Arrival date</label>
+        <input id="ct-arrival" name="arrival" type="date">
+        <label class="sr-only" for="ct-departure">Departure date</label>
+        <input id="ct-departure" name="departure" type="date">
+        <label class="sr-only" for="ct-message">Tell us about your group</label>
+        <textarea id="ct-message" name="message" placeholder="Tell us about your group and what you're looking for..."></textarea>
+        <!-- Honeypot field for spam — must remain empty -->
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+        <button type="submit" class="btn-submit">Send Inquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Wonder Valley <span>· Joshua Tree</span></div>
+  <ul class="footer-links">
+    <li><a href="#wondervalley">The Compound</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+    <li><a href="/terms">Terms</a></li>
+  </ul>
+  <p class="footer-copy">© <span id="footerYear">2026</span> Zuckerman Rentals, LLC · Twentynine Palms, CA · <a href="https://healdsburgstays.com" rel="noopener" style="color:inherit;text-decoration:underline;">Sister property in Healdsburg &rarr;</a></p>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modalPropertyName" aria-hidden="true" inert>
+  <div class="modal" role="document">
+    <button class="modal-close" type="button" onclick="closeModal()" aria-label="Close inquiry form">✕</button>
+    <div id="modalFormContent">
+      <h2 class="modal-title" id="modalPropertyName">Request a Stay</h2>
+      <p class="modal-sub">Complete your inquiry below. We'll confirm availability and send pricing details within 24 hours.</p>
+      <form class="modal-form" id="modalForm" action="https://formspree.io/f/mwvynvgv" method="POST" onsubmit="handleModalSubmit(event)" novalidate>
+        <input type="hidden" name="property" id="modalPropertyField" value="">
+        <div class="form-row">
+          <div>
+            <label class="sr-only" for="md-first">First name</label>
+            <input id="md-first" name="firstName" type="text" placeholder="First name" autocomplete="given-name" required>
+          </div>
+          <div>
+            <label class="sr-only" for="md-last">Last name</label>
+            <input id="md-last" name="lastName" type="text" placeholder="Last name" autocomplete="family-name" required>
+          </div>
+        </div>
+        <label class="sr-only" for="md-email">Email address</label>
+        <input id="md-email" name="email" type="email" placeholder="Email address" autocomplete="email" required>
+        <label class="sr-only" for="md-phone">Phone number</label>
+        <input id="md-phone" name="phone" type="tel" placeholder="Phone number" autocomplete="tel">
+        <div class="form-row">
+          <div>
+            <label class="sr-only" for="modalCheckin">Check-in date</label>
+            <input id="modalCheckin" name="checkin" type="date" required>
+          </div>
+          <div>
+            <label class="sr-only" for="modalCheckout">Check-out date</label>
+            <input id="modalCheckout" name="checkout" type="date" required>
+          </div>
+        </div>
+        <label class="sr-only" for="md-guests">Number of guests</label>
+        <select id="md-guests" name="guests" required>
+          <option value="" disabled selected>Number of guests</option>
+          <option>2</option><option>3</option><option>4</option>
+          <option>5</option><option>6</option><option>7</option>
+          <option>8</option><option>9</option><option>10</option>
+          <option>11</option><option>12+</option>
+        </select>
+        <label class="sr-only" for="md-message">Anything we should know?</label>
+        <textarea id="md-message" name="message" placeholder="Anything we should know about your group or stay?"></textarea>
+        <!-- Honeypot field for spam — must remain empty -->
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+        <button type="submit" class="btn-submit">Submit Inquiry</button>
+        <p class="modal-note">By submitting, you agree to be contacted regarding your inquiry. No payment is collected at this stage — this is a request for availability only.</p>
+      </form>
+    </div>
+    <div class="success-message" id="modalSuccess" role="status" aria-live="polite">
+      <div class="success-icon" aria-hidden="true">✓</div>
+      <h3 class="success-title">Inquiry Received</h3>
+      <p class="success-body">Thank you for reaching out. We'll confirm availability and follow up with pricing details within 24 hours.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ─── Footer year ───
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+  // ─── Modal: open / close / focus management / ESC / focus trap ───
+  const modal = document.getElementById('bookingModal');
+  const modalContent = document.getElementById('modalFormContent');
+  const modalSuccess = document.getElementById('modalSuccess');
+  const modalPropName = document.getElementById('modalPropertyName');
+  const modalPropField = document.getElementById('modalPropertyField');
+  let modalLastFocus = null;
+
+  function getFocusable(container) {
+    return container.querySelectorAll(
+      'a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+  }
+
+  function openModal(propertyName, triggerEl) {
+    modalPropName.textContent = propertyName || 'Request a Stay';
+    if (modalPropField) modalPropField.value = propertyName || '';
+
+    // Carry over date / guest / email / name from the property's booking-box
+    if (triggerEl) {
+      const box = triggerEl.closest('.booking-box');
+      if (box) {
+        const ci = box.querySelector('input[name="checkin"]');
+        const co = box.querySelector('input[name="checkout"]');
+        const gs = box.querySelector('select[name="guests"]');
+        const em = box.querySelector('input[name="email"]');
+        const nm = box.querySelector('input[name="name"]');
+        if (ci && ci.value) document.getElementById('modalCheckin').value = ci.value;
+        if (co && co.value) document.getElementById('modalCheckout').value = co.value;
+        if (gs && gs.value) {
+          const sel = document.getElementById('md-guests');
+          // Find a matching <option> by value or by a starting digit match
+          for (const opt of sel.options) {
+            if (opt.value === gs.value || opt.text.startsWith(gs.value)) {
+              sel.value = opt.value || opt.text;
+              break;
+            }
+          }
+        }
+        if (em && em.value) document.getElementById('md-email').value = em.value;
+        if (nm && nm.value) {
+          const parts = nm.value.trim().split(/\s+/);
+          document.getElementById('md-first').value = parts[0] || '';
+          document.getElementById('md-last').value = parts.slice(1).join(' ') || '';
+        }
+      }
+    }
+
+    modalLastFocus = document.activeElement;
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    modal.removeAttribute('inert');
+    document.body.style.overflow = 'hidden';
+    // Focus first input
+    setTimeout(() => {
+      const f = getFocusable(modal);
+      if (f.length) f[1] ? f[1].focus() : f[0].focus(); // skip close button, focus first input
+    }, 50);
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    modal.setAttribute('inert', '');
+    document.body.style.overflow = '';
+    modalContent.style.display = 'block';
+    modalSuccess.classList.remove('active');
+    if (modalLastFocus) modalLastFocus.focus();
+  }
+
+  modal.addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  // ESC + focus trap inside modal
+  document.addEventListener('keydown', function(e) {
+    if (!modal.classList.contains('active')) return;
+    if (e.key === 'Escape') {
+      closeModal();
+      return;
+    }
+    if (e.key === 'Tab') {
+      const f = Array.from(getFocusable(modal));
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  });
+
+  // Generic Formspree POST helper. Returns a Promise<boolean> for ok/not-ok.
+  async function postFormspree(form) {
+    const btn = form.querySelector('button[type="submit"]');
+    const originalLabel = btn ? btn.textContent : '';
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      return res.ok;
+    } catch (err) {
+      return false;
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = originalLabel; }
+    }
+  }
+
+  async function handleModalSubmit(e) {
+    e.preventDefault();
+    const ok = await postFormspree(e.target);
+    if (ok) {
+      modalContent.style.display = 'none';
+      modalSuccess.classList.add('active');
+    } else {
+      // Inline error: replace any existing error, then add fresh one above the submit button
+      const existing = e.target.querySelector('.form-error');
+      if (existing) existing.remove();
+      const err = document.createElement('p');
+      err.className = 'form-error';
+      err.setAttribute('role', 'alert');
+      err.style.cssText = "color:#b3261e;font-family:'Montserrat',sans-serif;font-size:0.85rem;margin:0.75rem 0;text-align:center;";
+      err.textContent = "Couldn't submit — please try again, or email ZuckermanHQ@gmail.com directly.";
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      if (submitBtn) submitBtn.parentNode.insertBefore(err, submitBtn);
+    }
+  }
+
+  async function handleContactSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const ok = await postFormspree(form);
+    if (ok) {
+      form.innerHTML = '<p style="font-family:\'Cormorant Garamond\',serif;font-size:1.4rem;color:var(--gold);text-align:center;padding:2rem 0;line-height:1.5;">Thank you — we\'ll be in touch shortly.</p>';
+    } else {
+      const existing = form.querySelector('.form-error');
+      if (existing) existing.remove();
+      const err = document.createElement('p');
+      err.className = 'form-error';
+      err.setAttribute('role', 'alert');
+      err.style.cssText = "color:#b3261e;font-family:'Montserrat',sans-serif;font-size:0.85rem;margin:0.75rem 0;text-align:center;";
+      err.textContent = "Couldn't submit — please try again, or email ZuckermanHQ@gmail.com directly.";
+      const submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) submitBtn.parentNode.insertBefore(err, submitBtn);
+    }
+  }
+
+  // ─── Smooth scroll + URL hash update ───
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#' || href.length < 2) return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (history.pushState) history.pushState(null, '', href);
+        // Close mobile menu if open
+        const mm = document.getElementById('mobileMenu');
+        if (mm && mm.classList.contains('open')) toggleMobileMenu(false);
+      }
+    });
+  });
+
+  // ─── Nav scrolled state ───
+  const navEl = document.querySelector('nav');
+  function updateNavScroll() {
+    if (window.scrollY > 60) navEl.classList.add('nav--scrolled');
+    else navEl.classList.remove('nav--scrolled');
+  }
+  window.addEventListener('scroll', updateNavScroll, { passive: true });
+  updateNavScroll();
+
+  // ─── Mobile menu ───
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  function toggleMobileMenu(force) {
+    const willOpen = typeof force === 'boolean' ? force : !mobileMenu.classList.contains('open');
+    mobileMenu.classList.toggle('open', willOpen);
+    navToggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    navToggle.setAttribute('aria-label', willOpen ? 'Close menu' : 'Open menu');
+    mobileMenu.setAttribute('aria-hidden', willOpen ? 'false' : 'true');
+    if (willOpen) mobileMenu.removeAttribute('inert'); else mobileMenu.setAttribute('inert', '');
+  }
+  navToggle.addEventListener('click', () => toggleMobileMenu());
+
+  // ─── Lightbox for photo strips + detail gallery ───
+  const stripImgs = Array.from(document.querySelectorAll('.photo-strip-track img'));
+  const galleryImgs = Array.from(document.querySelectorAll('.detail-gallery img'));
+  const lbTriggers = [...stripImgs, ...galleryImgs];
+  if (lbTriggers.length) {
+    const lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', 'Photo gallery');
+    lb.innerHTML = `
+      <button class="lightbox-close" aria-label="Close gallery">✕</button>
+      <button class="lightbox-prev" aria-label="Previous photo">‹</button>
+      <img alt="">
+      <button class="lightbox-next" aria-label="Next photo">›</button>
+      <div class="lightbox-counter"></div>
+    `;
+    document.body.appendChild(lb);
+    const lbImg = lb.querySelector('img');
+    const lbCounter = lb.querySelector('.lightbox-counter');
+    let lbIndex = 0;
+    let lbScope = stripImgs;
+
+    function showLb(i) {
+      lbIndex = (i + lbScope.length) % lbScope.length;
+      lbImg.src = lbScope[lbIndex].src;
+      lbImg.alt = lbScope[lbIndex].alt;
+      lbCounter.textContent = `${lbIndex + 1} / ${lbScope.length}`;
+    }
+
+    function openLb(scope, index) {
+      lbScope = scope;
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      showLb(index);
+    }
+    function closeLb() {
+      lb.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Pick scope: prefer the property's full photo strip (so a click anywhere
+    // in that property opens the same complete slideshow). For images outside
+    // a property-detail (shouldn't happen given current markup), scope is just self.
+    function scopeForImg(img) {
+      const property = img.closest('.property-detail');
+      if (property) {
+        const strip = property.querySelector('.photo-strip-track');
+        if (strip) {
+          const scope = Array.from(strip.querySelectorAll('img'));
+          // If the clicked image is in the strip, start there.
+          // Otherwise (gallery main/sub), match by src; fall back to 0.
+          let idx = scope.indexOf(img);
+          if (idx === -1) idx = scope.findIndex(s => s.src === img.src);
+          return { scope, index: Math.max(0, idx) };
+        }
+      }
+      return { scope: [img], index: 0 };
+    }
+
+    lbTriggers.forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        const { scope, index } = scopeForImg(img);
+        openLb(scope, index);
+      });
+    });
+    lb.querySelector('.lightbox-close').addEventListener('click', closeLb);
+    lb.querySelector('.lightbox-prev').addEventListener('click', () => showLb(lbIndex - 1));
+    lb.querySelector('.lightbox-next').addEventListener('click', () => showLb(lbIndex + 1));
+    lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') showLb(lbIndex - 1);
+      if (e.key === 'ArrowRight') showLb(lbIndex + 1);
+    });
+  }
+
+  // ─── Date constraints: check-out must be after check-in ───
+  document.querySelectorAll('input[name="checkin"]').forEach(ci => {
+    ci.addEventListener('change', () => {
+      const co = ci.closest('.booking-box, form, .form-row, .modal-form')?.querySelector('input[name="checkout"]');
+      if (co && ci.value) co.min = ci.value;
+    });
+  });
+</script>
+
+</body>
+</html>
