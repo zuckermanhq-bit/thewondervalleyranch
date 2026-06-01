@@ -1316,6 +1316,19 @@
     margin-bottom: 2rem;
   }
 
+  .modal-dates {
+    background: var(--cream);
+    border: 1px solid var(--border-gold);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: var(--navy);
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+  .modal-dates .md-quote { color: var(--gold); font-weight: 500; }
+
   .modal-form {
     display: flex;
     flex-direction: column;
@@ -1720,7 +1733,7 @@
     <button class="modal-close" type="button" onclick="closeModal()" aria-label="Close inquiry form">✕</button>
     <div id="modalFormContent">
       <h2 class="modal-title" id="modalPropertyName">Request a Stay</h2>
-      <p class="modal-sub">Complete your inquiry below. We'll confirm availability and send pricing details within 24 hours.</p>
+      <p class="modal-sub">Just your details below — we'll confirm these dates and send final pricing within 24 hours.</p>
       <form class="modal-form" id="modalForm" action="https://formspree.io/f/mwvynvgv" method="POST" onsubmit="handleModalSubmit(event)" novalidate>
         <input type="hidden" name="property" id="modalPropertyField" value="">
         <div class="form-row">
@@ -1737,16 +1750,9 @@
         <input id="md-email" name="email" type="email" placeholder="Email address" autocomplete="email" required>
         <label class="sr-only" for="md-phone">Phone number</label>
         <input id="md-phone" name="phone" type="tel" placeholder="Phone number" autocomplete="tel">
-        <div class="form-row">
-          <div>
-            <label class="sr-only" for="modalCheckin">Check-in date</label>
-            <input id="modalCheckin" name="checkin" type="date" required>
-          </div>
-          <div>
-            <label class="sr-only" for="modalCheckout">Check-out date</label>
-            <input id="modalCheckout" name="checkout" type="date" required>
-          </div>
-        </div>
+        <div class="modal-dates" id="modalDatesSummary" role="status" aria-live="polite">Select your dates on the calendar</div>
+        <input type="hidden" id="modalCheckin" name="checkin">
+        <input type="hidden" id="modalCheckout" name="checkout">
         <label class="sr-only" for="md-guests">Number of guests</label>
         <select id="md-guests" name="guests" required>
           <option value="" disabled selected>Number of guests</option>
@@ -1802,8 +1808,24 @@
         const gs = box.querySelector('select[name="guests"]');
         const em = box.querySelector('input[name="email"]');
         const nm = box.querySelector('input[name="name"]');
-        if (ci && ci.value) document.getElementById('modalCheckin').value = ci.value;
-        if (co && co.value) document.getElementById('modalCheckout').value = co.value;
+        // Dates come from the availability calendar (or native fallback inputs) and are shown
+        // read-only in the modal so guests don't have to re-pick them blind.
+        const inCI = ci && ci.value ? ci.value : '';
+        const inCO = co && co.value ? co.value : '';
+        document.getElementById('modalCheckin').value = inCI;
+        document.getElementById('modalCheckout').value = inCO;
+        const sumEl = document.getElementById('modalDatesSummary');
+        if (sumEl) {
+          if (inCI && inCO) {
+            const fmtD = s => { const p = s.split('-'); return new Date(p[0], p[1]-1, p[2]).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }); };
+            const nights = Math.round((new Date(inCO) - new Date(inCI)) / 86400000);
+            const quote = box.getAttribute('data-quote-text');
+            sumEl.innerHTML = fmtD(inCI) + ' → ' + fmtD(inCO) + ' · ' + nights + ' night' + (nights === 1 ? '' : 's') +
+              (quote ? '<br><span class="md-quote">' + quote + '</span>' : '');
+          } else {
+            sumEl.textContent = 'Select your dates on the calendar';
+          }
+        }
         if (gs && gs.value) {
           const sel = document.getElementById('md-guests');
           // Find a matching <option> by value or by a starting digit match
@@ -1891,6 +1913,21 @@
 
   async function handleModalSubmit(e) {
     e.preventDefault();
+    // Dates are selected on the calendar; guard against an empty submission.
+    const ciVal = document.getElementById('modalCheckin').value;
+    const coVal = document.getElementById('modalCheckout').value;
+    if (!ciVal || !coVal) {
+      const existing = e.target.querySelector('.form-error');
+      if (existing) existing.remove();
+      const err = document.createElement('p');
+      err.className = 'form-error';
+      err.setAttribute('role', 'alert');
+      err.style.cssText = "color:#b3261e;font-family:'Montserrat',sans-serif;font-size:0.85rem;margin:0.75rem 0;text-align:center;";
+      err.textContent = 'Please choose your dates on the calendar first.';
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      if (submitBtn) submitBtn.parentNode.insertBefore(err, submitBtn);
+      return;
+    }
     const ok = await postFormspree(e.target);
     if (ok) {
       modalContent.style.display = 'none';
@@ -2054,6 +2091,9 @@
     });
   });
 </script>
+
+<!-- Availability calendar: reads the shared healdsburgstays backend (availability + live pricing) -->
+<script src="/availability-calendar.js" data-api-base="https://www.healdsburgstays.com" defer></script>
 
 </body>
 </html>
