@@ -78,6 +78,10 @@
       '.avcal-msg{color:#b3261e;font-size:.78rem;margin-top:.4rem;min-height:1em}',
       '.avcal-loading,.avcal-error{font-size:.82rem;color:var(--muted,#888780);padding:1rem 0;text-align:center}',
       '.avcal-quote strong{color:var(--navy,#1B2A4A)}',
+      '.avcal-controls{display:flex;gap:.75rem;margin-top:.75rem;flex-wrap:wrap}',
+      '.avcal-ctl{flex:1;min-width:90px;display:flex;flex-direction:column;gap:.25rem;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted,#888780)}',
+      '.avcal-ctl select{font-family:"Montserrat",sans-serif;font-size:.85rem;color:var(--charcoal,#2C2C2A);background:#fff;border:1px solid var(--border,rgba(27,42,74,.18));border-radius:6px;padding:.5rem .6rem;cursor:pointer}',
+      '.avcal-ctl select:focus{outline:none;border-color:var(--gold,#C19A4E)}',
       '.avcal-on .booking-form{display:none!important}',
       '.avcal-on .btn-inquire:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.35)}'
     ].join('');
@@ -103,6 +107,9 @@
     this.viewM = t.getUTCMonth();  // 0-11
     this.el = null;
     this.quoteSeq = 0;             // guards against out-of-order quote responses
+    this.guests = 2;              // chosen party size (drives extra-guest fee beyond base)
+    this.pets = 0;               // chosen dog count (WV only; drives pet fee)
+    this.config = {};            // occupancy + pet config from the availability response
   }
 
   Calendar.prototype.isBlockedNight = function (day) {
@@ -141,6 +148,8 @@
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(function (data) {
         self.blocked = Array.isArray(data.blocked) ? data.blocked : [];
+        self.config = data.config || {};
+        if (self.config.occupancyBase) self.guests = self.config.occupancyBase >= 2 ? 2 : self.config.occupancyBase;
         self.render();
       })
       .catch(function () {
@@ -211,12 +220,30 @@
     html += '<span><i class="avcal-dot" style="background:var(--navy,#1B2A4A)"></i>Selected</span>';
     html += '<span><i class="avcal-dot" style="background:#c9c7c1"></i>Unavailable</span>';
     html += '</div>';
+    html += this.buildControls();
     html += '<div class="avcal-summary"></div>';
     html += '<div class="avcal-msg" role="status" aria-live="polite"></div>';
 
     this.el.innerHTML = html;
     this.bind();
     this.updateSummary();
+  };
+
+  // Guest-count + (where allowed) dog-count selectors. Driven by the property config.
+  Calendar.prototype.buildControls = function () {
+    var c = this.config || {};
+    var maxG = c.occupancyMax || 10;
+    var h = '<div class="avcal-controls">';
+    h += '<label class="avcal-ctl"><span>Guests</span><select class="avcal-guests" aria-label="Number of guests">';
+    for (var g = 1; g <= maxG; g++) h += '<option value="' + g + '"' + (g === this.guests ? ' selected' : '') + '>' + g + '</option>';
+    h += '</select></label>';
+    if (c.petsAllowed && c.maxPets > 0) {
+      h += '<label class="avcal-ctl"><span>Dogs</span><select class="avcal-pets" aria-label="Number of dogs">';
+      for (var p = 0; p <= c.maxPets; p++) h += '<option value="' + p + '"' + (p === this.pets ? ' selected' : '') + '>' + p + '</option>';
+      h += '</select></label>';
+    }
+    h += '</div>';
+    return h;
   };
 
   Calendar.prototype.bind = function () {
@@ -234,6 +261,17 @@
       if (btn.disabled) return;
       btn.addEventListener('click', function () { self.pick(btn.getAttribute('data-day')); });
     });
+    var gSel = this.el.querySelector('.avcal-guests');
+    if (gSel) gSel.addEventListener('change', function () { self.guests = parseInt(this.value, 10) || 1; self.onPartyChange(); });
+    var pSel = this.el.querySelector('.avcal-pets');
+    if (pSel) pSel.addEventListener('change', function () { self.pets = parseInt(this.value, 10) || 0; self.onPartyChange(); });
+  };
+
+  // Guest/pet count changed — re-price (if dates chosen) without rebuilding the calendar.
+  Calendar.prototype.onPartyChange = function () {
+    this.box.setAttribute('data-guests', this.guests);
+    this.box.setAttribute('data-pets', this.pets);
+    if (this.ci && this.co) this.fetchQuote(this.ci, this.co, nightsBetween(this.ci, this.co));
   };
 
   Calendar.prototype.pick = function (day) {
@@ -290,7 +328,7 @@
     var self = this;
     var seq = ++this.quoteSeq;
     var fallback = 'Pricing confirmed with your inquiry (within 24 hours).';
-    fetch(API_BASE + '/api/quote/' + this.slug + '?checkin=' + ci + '&checkout=' + co, { headers: { 'Accept': 'application/json' } })
+    fetch(API_BASE + '/api/quote/' + this.slug + '?checkin=' + ci + '&checkout=' + co + '&guests=' + this.guests + '&pets=' + this.pets, { headers: { 'Accept': 'application/json' } })
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (q) {
         if (seq !== self.quoteSeq) return;            // a newer selection superseded this
@@ -315,6 +353,8 @@
         var taxPct = Math.round((q.taxRate || 0) * 100);
         var rows = row(nightLabel, q.nightlySubtotal);
         if (q.cleaningFee) rows += row('Cleaning fee', q.cleaningFee);
+        if (q.extraGuestFee) rows += row(q.extraGuests + ' extra guest' + (q.extraGuests === 1 ? '' : 's') + ' (' + money(q.extraGuestNightly, cur) + '/night)', q.extraGuestFee);
+        if (q.petFee) rows += row(q.pets + ' dog' + (q.pets === 1 ? '' : 's'), q.petFee);
         if (q.tax) rows += row((q.taxLabel || 'Tax') + ' (' + taxPct + '%)', q.tax);
         rows += row('Total' + (q.complete === false ? ' (estimate)' : ''), q.total, true);
         var html = '<div style="color:var(--charcoal,#2C2C2A);font-size:.8rem;">' + rows + '</div>';
@@ -323,8 +363,10 @@
         }
         html += '<div style="color:var(--muted,#888780);font-size:.72rem;margin-top:.35rem">Final total confirmed when you inquire.</div>';
         slot.innerHTML = html;
-        // Stash a compact all-in total the inquiry modal can show alongside the dates.
-        self.box.setAttribute('data-quote-text', money(q.total, cur) + ' total (incl. cleaning + tax)');
+        // Stash the all-in total + party for the inquiry modal summary.
+        self.box.setAttribute('data-quote-text', money(q.total, cur) + ' total · ' + self.guests + ' guest' + (self.guests === 1 ? '' : 's') + (self.pets ? ' · ' + self.pets + ' dog' + (self.pets === 1 ? '' : 's') : ''));
+        self.box.setAttribute('data-guests', self.guests);
+        self.box.setAttribute('data-pets', self.pets);
       })
       .catch(function () {
         if (seq !== self.quoteSeq) return;

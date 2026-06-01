@@ -1860,15 +1860,16 @@
             sumEl.textContent = 'Select your dates on the calendar';
           }
         }
-        if (gs && gs.value) {
+        // Carry guest + dog counts (chosen on the availability calendar) into the inquiry.
+        const gCount = box.getAttribute('data-guests');
+        if (gCount) {
           const sel = document.getElementById('md-guests');
-          // Find a matching <option> by value or by a starting digit match
-          for (const opt of sel.options) {
-            if (opt.value === gs.value || opt.text.startsWith(gs.value)) {
-              sel.value = opt.value || opt.text;
-              break;
-            }
-          }
+          if (sel) { if (![...sel.options].some(o => o.value === gCount)) sel.add(new Option(gCount, gCount)); sel.value = gCount; }
+        }
+        const pCount = box.getAttribute('data-pets');
+        if (pCount && +pCount > 0) {
+          const msg = document.getElementById('md-message');
+          if (msg && !/Dogs?:/.test(msg.value)) msg.value = (msg.value ? msg.value + '\n' : '') + 'Dogs: ' + pCount;
         }
         if (em && em.value) document.getElementById('md-email').value = em.value;
         if (nm && nm.value) {
