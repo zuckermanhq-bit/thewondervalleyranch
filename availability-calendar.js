@@ -336,6 +336,7 @@
         if (!slot) return;
         if (!q || q.pricingAvailable === false || typeof q.subtotal !== 'number') {
           slot.textContent = (q && q.message) || fallback;
+          self.box.removeAttribute('data-quote-json');
           return;
         }
         var cur = q.currency || 'USD';
@@ -367,11 +368,32 @@
         self.box.setAttribute('data-quote-text', money(q.total, cur) + ' total · ' + self.guests + ' guest' + (self.guests === 1 ? '' : 's') + (self.pets ? ' · ' + self.pets + ' dog' + (self.pets === 1 ? '' : 's') : ''));
         self.box.setAttribute('data-guests', self.guests);
         self.box.setAttribute('data-pets', self.pets);
+        // Stash the FULL structured breakdown so the inquiry carries the exact quote the
+        // guest saw (the modal copies this into hidden fields → Formspree email).
+        self.box.setAttribute('data-quote-json', JSON.stringify({
+          currency: cur,
+          nights: n,
+          avgNightly: q.avgNightly || null,
+          nightlySubtotal: q.nightlySubtotal,
+          cleaningFee: q.cleaningFee || 0,
+          extraGuests: q.extraGuests || 0,
+          extraGuestNightly: q.extraGuestNightly || 0,
+          extraGuestFee: q.extraGuestFee || 0,
+          pets: q.pets || 0,
+          petFee: q.petFee || 0,
+          taxLabel: q.taxLabel || 'Tax',
+          taxRate: q.taxRate || 0,
+          tax: q.tax || 0,
+          total: q.total,
+          estimate: q.complete === false,
+          guests: self.guests
+        }));
       })
       .catch(function () {
         if (seq !== self.quoteSeq) return;
         var slot = self.el.querySelector('[data-quote]');
         if (slot) slot.textContent = fallback;
+        self.box.removeAttribute('data-quote-json');
       });
   };
 

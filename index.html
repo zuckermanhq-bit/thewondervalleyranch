@@ -1787,6 +1787,11 @@
         <div class="modal-dates" id="modalDatesSummary" role="status" aria-live="polite">Select your dates on the calendar</div>
         <input type="hidden" id="modalCheckin" name="checkin">
         <input type="hidden" id="modalCheckout" name="checkout">
+        <!-- Populated from the availability calendar's live quote so the inquiry email carries
+             the exact figures the guest saw (nights, line items, total). -->
+        <input type="hidden" id="modalNights" name="nights">
+        <input type="hidden" id="modalQuotedTotal" name="quoted_total">
+        <input type="hidden" id="modalQuotedBreakdown" name="quoted_breakdown">
         <label class="sr-only" for="md-guests">Number of guests</label>
         <select id="md-guests" name="guests" required>
           <option value="" disabled selected>Number of guests</option>
@@ -1829,6 +1834,38 @@
     );
   }
 
+  // Build a readable quote breakdown from the calendar's stashed data-quote-json and copy
+  // it (plus nights + total) into the modal's hidden fields, so the inquiry email shows the
+  // exact quote the guest saw. Pass box=null to clear when there are no chosen dates.
+  function applyQuotedFields(box, nights) {
+    const nightsEl = document.getElementById('modalNights');
+    const totalEl = document.getElementById('modalQuotedTotal');
+    const bdEl = document.getElementById('modalQuotedBreakdown');
+    if (nightsEl) nightsEl.value = nights || '';
+    const raw = box && box.getAttribute('data-quote-json');
+    if (!raw) {
+      if (totalEl) totalEl.value = '';
+      if (bdEl) bdEl.value = box ? 'No live price was shown — priced on inquiry.' : '';
+      return;
+    }
+    let q;
+    try { q = JSON.parse(raw); } catch (e) { q = null; }
+    if (!q) { if (totalEl) totalEl.value = ''; if (bdEl) bdEl.value = ''; return; }
+    const m = n => '$' + Math.round(n).toLocaleString();
+    const lines = [];
+    lines.push(q.avgNightly
+      ? m(q.avgNightly) + ' × ' + q.nights + ' night' + (q.nights === 1 ? '' : 's') + ' = ' + m(q.nightlySubtotal)
+      : q.nights + ' night' + (q.nights === 1 ? '' : 's') + ' = ' + m(q.nightlySubtotal));
+    if (q.cleaningFee) lines.push('Cleaning fee: ' + m(q.cleaningFee));
+    if (q.extraGuestFee) lines.push(q.extraGuests + ' extra guest' + (q.extraGuests === 1 ? '' : 's') + ': ' + m(q.extraGuestFee));
+    if (q.petFee) lines.push(q.pets + ' dog' + (q.pets === 1 ? '' : 's') + ': ' + m(q.petFee));
+    if (q.tax) lines.push((q.taxLabel || 'Tax') + ' (' + Math.round((q.taxRate || 0) * 100) + '%): ' + m(q.tax));
+    lines.push('TOTAL' + (q.estimate ? ' (estimate)' : '') + ': ' + m(q.total));
+    lines.push('(' + q.guests + ' guest' + (q.guests === 1 ? '' : 's') + ' — figures shown to guest on site)');
+    if (totalEl) totalEl.value = Math.round(q.total);
+    if (bdEl) bdEl.value = lines.join('\n');
+  }
+
   function openModal(propertyName, triggerEl) {
     modalPropName.textContent = propertyName || 'Request a Stay';
     if (modalPropField) modalPropField.value = propertyName || '';
@@ -1849,16 +1886,16 @@
         document.getElementById('modalCheckin').value = inCI;
         document.getElementById('modalCheckout').value = inCO;
         const sumEl = document.getElementById('modalDatesSummary');
-        if (sumEl) {
-          if (inCI && inCO) {
-            const fmtD = s => { const p = s.split('-'); return new Date(p[0], p[1]-1, p[2]).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }); };
-            const nights = Math.round((new Date(inCO) - new Date(inCI)) / 86400000);
-            const quote = box.getAttribute('data-quote-text');
-            sumEl.innerHTML = fmtD(inCI) + ' → ' + fmtD(inCO) + ' · ' + nights + ' night' + (nights === 1 ? '' : 's') +
-              (quote ? '<br><span class="md-quote">' + quote + '</span>' : '');
-          } else {
-            sumEl.textContent = 'Select your dates on the calendar';
-          }
+        if (inCI && inCO) {
+          const fmtD = s => { const p = s.split('-'); return new Date(p[0], p[1]-1, p[2]).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }); };
+          const nights = Math.round((new Date(inCO) - new Date(inCI)) / 86400000);
+          const quote = box.getAttribute('data-quote-text');
+          if (sumEl) sumEl.innerHTML = fmtD(inCI) + ' → ' + fmtD(inCO) + ' · ' + nights + ' night' + (nights === 1 ? '' : 's') +
+            (quote ? '<br><span class="md-quote">' + quote + '</span>' : '');
+          applyQuotedFields(box, nights);
+        } else {
+          if (sumEl) sumEl.textContent = 'Select your dates on the calendar';
+          applyQuotedFields(null, '');
         }
         // Carry guest + dog counts (chosen on the availability calendar) into the inquiry.
         const gCount = box.getAttribute('data-guests');
