@@ -341,23 +341,37 @@
         }
         var cur = q.currency || 'USD';
         var n = q.nights;
-        function row(label, val, isTotal) {
+        // label/value row. style: 'sub' = accommodation subtotal (light rule), 'total' = grand total (bold rule).
+        function row(label, val, style) {
           var base = 'display:flex;justify-content:space-between;gap:1rem;';
-          base += isTotal
-            ? 'font-weight:600;color:var(--navy,#1B2A4A);border-top:1px solid var(--border,rgba(27,42,74,.18));padding-top:.4rem;margin-top:.4rem;'
-            : 'margin-top:.25rem;';
+          if (style === 'total') base += 'font-weight:600;color:var(--navy,#1B2A4A);border-top:1px solid var(--border,rgba(27,42,74,.18));padding-top:.4rem;margin-top:.4rem;';
+          else if (style === 'sub') base += 'font-weight:500;color:var(--charcoal,#2C2C2A);border-top:1px solid var(--border,rgba(27,42,74,.10));padding-top:.3rem;margin-top:.3rem;';
+          else base += 'margin-top:.25rem;';
           return '<div style="' + base + '"><span>' + label + '</span><span>' + money(val, cur) + '</span></div>';
         }
-        var nightLabel = q.avgNightly
-          ? money(q.avgNightly, cur) + ' × ' + n + ' night' + (n === 1 ? '' : 's')
-          : n + ' night' + (n === 1 ? '' : 's');
+        // compact, muted per-night line
+        function nightRow(label, val) {
+          return '<div style="display:flex;justify-content:space-between;gap:1rem;font-size:.72rem;color:var(--muted,#888780);margin-top:.12rem"><span>' + label + '</span><span>' + (val == null ? '—' : money(val, cur)) + '</span></div>';
+        }
+        function nightFmt(s) { var d = parseYMD(s); return DOW[d.getUTCDay()] + ' ' + MONTHS[d.getUTCMonth()].slice(0, 3) + ' ' + d.getUTCDate(); }
         var taxPct = Math.round((q.taxRate || 0) * 100);
-        var rows = row(nightLabel, q.nightlySubtotal);
+
+        var rows = '';
+        if (Array.isArray(q.nightly) && q.nightly.length) {
+          // Itemize every night, then a subtotal line.
+          for (var i = 0; i < q.nightly.length; i++) rows += nightRow(nightFmt(q.nightly[i].date), q.nightly[i].price);
+          rows += row('Accommodation · ' + n + ' night' + (n === 1 ? '' : 's') + (q.avgNightly ? ' (avg ' + money(q.avgNightly, cur) + '/nt)' : ''), q.nightlySubtotal, 'sub');
+        } else {
+          var nightLabel = q.avgNightly
+            ? money(q.avgNightly, cur) + ' × ' + n + ' night' + (n === 1 ? '' : 's')
+            : n + ' night' + (n === 1 ? '' : 's');
+          rows += row(nightLabel, q.nightlySubtotal);
+        }
         if (q.cleaningFee) rows += row('Cleaning fee', q.cleaningFee);
         if (q.extraGuestFee) rows += row(q.extraGuests + ' extra guest' + (q.extraGuests === 1 ? '' : 's') + ' (' + money(q.extraGuestNightly, cur) + '/night)', q.extraGuestFee);
         if (q.petFee) rows += row(q.pets + ' dog' + (q.pets === 1 ? '' : 's'), q.petFee);
         if (q.tax) rows += row((q.taxLabel || 'Tax') + ' (' + taxPct + '%)', q.tax);
-        rows += row('Total' + (q.complete === false ? ' (estimate)' : ''), q.total, true);
+        rows += row('Total' + (q.complete === false ? ' (estimate)' : ''), q.total, 'total');
         var html = '<div style="color:var(--charcoal,#2C2C2A);font-size:.8rem;">' + rows + '</div>';
         if (q.minStay && q.minStayOk === false) {
           html += '<div class="avcal-msg" style="color:#b3261e">Minimum stay is ' + q.minStay + ' nights for these dates.</div>';
