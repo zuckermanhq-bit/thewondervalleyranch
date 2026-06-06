@@ -1724,7 +1724,7 @@
     </div>
     <div class="contact-form-wrap">
       <p class="section-eyebrow" style="color:var(--gold);margin-bottom:1.25rem;">Send an Inquiry</p>
-      <form class="contact-form" id="contactForm" action="https://formspree.io/f/mwvynvgv" method="POST" onsubmit="handleContactSubmit(event)" novalidate>
+      <form class="contact-form" id="contactForm" action="https://www.healdsburgstays.com/api/inquiry" method="POST" onsubmit="handleContactSubmit(event)" novalidate>
         <label class="sr-only" for="ct-name">Your name</label>
         <input id="ct-name" name="name" type="text" placeholder="Your name" autocomplete="name" required>
         <label class="sr-only" for="ct-email">Email address</label>
@@ -1768,7 +1768,7 @@
     <div id="modalFormContent">
       <h2 class="modal-title" id="modalPropertyName">Request a Stay</h2>
       <p class="modal-sub">Just your details below — we'll confirm these dates and send final pricing within 24 hours.</p>
-      <form class="modal-form" id="modalForm" action="https://formspree.io/f/mwvynvgv" method="POST" onsubmit="handleModalSubmit(event)" novalidate>
+      <form class="modal-form" id="modalForm" action="https://www.healdsburgstays.com/api/inquiry" method="POST" onsubmit="handleModalSubmit(event)" novalidate>
         <input type="hidden" name="property" id="modalPropertyField" value="">
         <div class="form-row">
           <div>
@@ -1964,15 +1964,17 @@
     }
   });
 
-  // Generic Formspree POST helper. Returns a Promise<boolean> for ok/not-ok.
-  async function postFormspree(form) {
+  // Generic inquiry POST helper → the shared healdsburgstays.com /api/inquiry backend (was Formspree).
+  // Sends urlencoded (simple cross-origin request, no preflight) and returns a Promise<boolean>.
+  // A non-2xx (e.g. email-send failure) resolves false so the caller shows a real error.
+  async function postInquiry(form) {
     const btn = form.querySelector('button[type="submit"]');
     const originalLabel = btn ? btn.textContent : '';
     if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
     try {
       const res = await fetch(form.action, {
         method: 'POST',
-        body: new FormData(form),
+        body: new URLSearchParams(new FormData(form)),
         headers: { 'Accept': 'application/json' }
       });
       return res.ok;
@@ -2000,7 +2002,7 @@
       if (submitBtn) submitBtn.parentNode.insertBefore(err, submitBtn);
       return;
     }
-    const ok = await postFormspree(e.target);
+    const ok = await postInquiry(e.target);
     if (ok) {
       modalContent.style.display = 'none';
       modalSuccess.classList.add('active');
@@ -2021,7 +2023,7 @@
   async function handleContactSubmit(e) {
     e.preventDefault();
     const form = e.target;
-    const ok = await postFormspree(form);
+    const ok = await postInquiry(form);
     if (ok) {
       form.innerHTML = '<p style="font-family:\'Cormorant Garamond\',serif;font-size:1.4rem;color:var(--gold);text-align:center;padding:2rem 0;line-height:1.5;">Thank you — we\'ll be in touch shortly.</p>';
     } else {
