@@ -27,6 +27,12 @@
       ]
     }
   ],
+  "rewrites": [
+    {
+      "source": "/p/:code",
+      "destination": "https://www.healdsburgstays.com/api/p/:code"
+    }
+  ],
   "redirects": [
     {
       "source": "/home",

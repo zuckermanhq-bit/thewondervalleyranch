@@ -1792,6 +1792,9 @@
         <input type="hidden" id="modalNights" name="nights">
         <input type="hidden" id="modalQuotedTotal" name="quoted_total">
         <input type="hidden" id="modalQuotedBreakdown" name="quoted_breakdown">
+        <!-- Dog count chosen on the availability calendar, carried so the admin quote (and the
+             guest's payment total) includes the pet fee. -->
+        <input type="hidden" id="modalPets" name="pets">
         <label class="sr-only" for="md-guests">Number of guests</label>
         <select id="md-guests" name="guests" required>
           <option value="" disabled selected>Number of guests</option>
@@ -1904,6 +1907,8 @@
           if (sel) { if (![...sel.options].some(o => o.value === gCount)) sel.add(new Option(gCount, gCount)); sel.value = gCount; }
         }
         const pCount = box.getAttribute('data-pets');
+        const petsEl = document.getElementById('modalPets');
+        if (petsEl) petsEl.value = (pCount && +pCount > 0) ? pCount : '';
         if (pCount && +pCount > 0) {
           const msg = document.getElementById('md-message');
           if (msg && !/Dogs?:/.test(msg.value)) msg.value = (msg.value ? msg.value + '\n' : '') + 'Dogs: ' + pCount;
